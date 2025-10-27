@@ -65,13 +65,11 @@ describe('add()', () => {
     // Handle negative numbers
     test('should throw error for a single negative number', () => {
         const inputString = '1,-2,3';
-        const result = add(inputString);
-        expect(result).toThrow('Negatives not allowed: -2');
+        expect(() => add(inputString)).toThrow('Negatives not allowed: -2');
     });
 
-    test('should throw error for a single negative number', () => {
+    test('should throw error for multiple negative numbers', () => {
         const inputString = '1,-2,3\n4\n-5';
-        const result = add(inputString);
-        expect(result).toThrow('Negatives not allowed: -2, -5');
+        expect(() => add(inputString)).toThrow('Negatives not allowed: -2, -5');
     });
 });
