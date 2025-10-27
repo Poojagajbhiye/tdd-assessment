@@ -3,8 +3,9 @@ const DataType = Object.freeze({
 });
 
 function add(numbers) {
-    if (typeof numbers === DataType.STRING && numbers.trim() === '') {
-        return 0;
+    if (typeof numbers === DataType.STRING) {
+        if (numbers.trim() === '') return 0;
+        return Number(numbers);
     }
 }
 
