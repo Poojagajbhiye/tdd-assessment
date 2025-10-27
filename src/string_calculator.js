@@ -22,10 +22,16 @@ function add(numbers) {
             delimiterPattern = getCustomDelimiters(delimiterLine);
         }
 
-        const convertedNumberArray = numbersPart.split(delimiterPattern)
+        const numberArray = numbersPart.split(delimiterPattern)
             .map((num) => num.trim())
             .filter((num) => num !== "");
-        return convertedNumberArray.reduce((acc, num) => acc + Number(num), 0);
+
+        const numericValues = numberArray.map((num) => Number(num)).filter((num) => isFinite(num));
+        const negatives = numericValues.filter((num) => num < 0);
+        if (negatives.length > 0) {
+            throw new Error(`Negatives not allowed: ${negatives.join(", ")}`);
+        }
+        return numericValues.reduce((acc, num) => acc + num, 0);
     }
 }
 
