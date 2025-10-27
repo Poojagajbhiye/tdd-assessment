@@ -18,4 +18,22 @@ describe('add()', () => {
         const result = add(inputString);
         expect(result).toBe(3);
     });
+
+    test('should return the sum for 5 numbers in the string', () => {
+        const inputString = '1,2,3,4,5';
+        const result = add(inputString);
+        expect(result).toBe(15);
+    });
+
+    test('should return the sum for 10 numbers in the string', () => {
+        const inputString = '1,12,2,0,5,3,66,3,9,4';
+        const result = add(inputString);
+        expect(result).toBe(105);
+    });
+
+    test('should return the sum for 20 numbers in the string', () => {
+        const inputString = '1,12,2,0,5,3,66,3,9,4,7,18,8,6,6,4,11,77,4,2';
+        const result = add(inputString);
+        expect(result).toBe(248);
+    });
 });
