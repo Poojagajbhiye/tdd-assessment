@@ -8,7 +8,7 @@ describe('add()', () => {
         expect(result).toBe(0);
     });
 
-    // Handle singel number
+    // Handle single number
     test('should return the same number for single number in the string', () => {
         const inputString = '1';
         const result = add(inputString);
@@ -60,5 +60,18 @@ describe('add()', () => {
         const inputString = '//$\n1$2$3$4';
         const result = add(inputString);
         expect(result).toBe(10);
+    });
+
+    // Handle negative numbers
+    test('should throw error for a single negative number', () => {
+        const inputString = '1,-2,3';
+        const result = add(inputString);
+        expect(result).toThrow('Negatives not allowed: -2');
+    });
+
+    test('should throw error for a single negative number', () => {
+        const inputString = '1,-2,3\n4\n-5';
+        const result = add(inputString);
+        expect(result).toThrow('Negatives not allowed: -2, -5');
     });
 });
