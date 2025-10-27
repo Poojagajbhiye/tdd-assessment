@@ -93,4 +93,11 @@ describe('add()', () => {
         const result = add(inputString);
         expect(result).toBe(6);
     });
+
+    // Handle multiple types of delimiters with length longer than one char
+    test('should handle multiple types of delimiters with length longer than one char', () => {
+        const inputString = '//[*][%]\n1***2%%3';
+        const result = add(inputString);
+        expect(result).toBe(6);
+    });
 });
