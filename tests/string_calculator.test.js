@@ -36,4 +36,10 @@ describe('add()', () => {
         const result = add(inputString);
         expect(result).toBe(248);
     });
+
+    test('should handle new lines between numbers (instead of commas)', () => {
+        const inputString = '1\n12,2,0\n7,1';
+        const result = add(inputString);
+        expect(result).toBe(23);
+    });
 });
