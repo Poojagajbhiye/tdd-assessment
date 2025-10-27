@@ -79,4 +79,11 @@ describe('add()', () => {
         expect(add('1000,1001,2')).toBe(1002);
         expect(add('2000,3000,4')).toBe(4);
     });
+
+    // Handle any length of delimiters
+    test('should handle any length of delimiters', () => {
+        const inputString = '//[***]\n1***2***3';
+        const result = add(inputString);
+        expect(result).toBe(6);
+    });
 });
