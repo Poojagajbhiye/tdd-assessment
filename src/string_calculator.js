@@ -31,7 +31,9 @@ function add(numbers) {
         if (negatives.length > 0) {
             throw new Error(`Negatives not allowed: ${negatives.join(", ")}`);
         }
-        return numericValues.reduce((acc, num) => acc + num, 0);
+
+        const validNumbers = numericValues.filter(num => num <= 1000);
+        return validNumbers.reduce((acc, num) => acc + num, 0);
     }
 }
 
