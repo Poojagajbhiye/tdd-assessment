@@ -12,4 +12,10 @@ describe('add()', () => {
         const result = add(inputString);
         expect(result).toBe(1);
     });
+
+    test('should return the sum for two numbers in the string', () => {
+        const inputString = '1,2';
+        const result = add(inputString);
+        expect(result).toBe(3);
+    });
 });
