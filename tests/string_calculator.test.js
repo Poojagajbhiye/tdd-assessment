@@ -72,4 +72,11 @@ describe('add()', () => {
         const inputString = '1,-2,3\n4\n-5';
         expect(() => add(inputString)).toThrow('Negatives not allowed: -2, -5');
     });
+
+    // Ignore numbers bigger than 1000
+    test('should ignore numbers greater than 1000', () => {
+        expect(add('2,1001')).toBe(2);
+        expect(add('1000,1001,2')).toBe(1002);
+        expect(add('2000,3000,4')).toBe(4);
+    });
 });
